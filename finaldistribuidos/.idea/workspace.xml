@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dcc8f104-b612-46ad-8331-e7b29e1d8b4f" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TyvSHOotTaR9Z53WWco7C8h3rS" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\okaso\IdeaProjects\finaldistribuidos\src\rios\gaston\server" />
+      <recent name="C:\Users\okaso\IdeaProjects\finaldistribuidos\src\rios\gaston\client" />
+      <recent name="C:\Users\okaso\IdeaProjects\finaldistribuidos\src\rios\gaston" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.AskRemote (1)">
+    <configuration name="AskRemote (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.client.AskRemote" />
+      <module name="finaldistribuidos" />
+      <option name="PROGRAM_PARAMETERS" value="localhost" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AskRemote" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.AskRemote" />
+      <module name="finaldistribuidos" />
+      <option name="PROGRAM_PARAMETERS" value="localhost" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartRemoteObject" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.server.StartRemoteObject" />
+      <module name="finaldistribuidos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartRemoteObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.StartRemoteObject" />
+      <module name="finaldistribuidos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.interfaces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartRemoteObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.server.StartRemoteObject" />
+      <module name="finaldistribuidos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.multicastRMI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartRemoteObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.server.StartRemoteObject" />
+      <module name="finaldistribuidos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.multicastRMI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rios.gaston.client.Test" />
+      <module name="finaldistribuidos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rios.gaston.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.AskRemote" />
+      <item itemvalue="Application.StartRemoteObject" />
+      <item itemvalue="Application.AskRemote (1)" />
+      <item itemvalue="Application.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AskRemote (1)" />
+        <item itemvalue="Application.StartRemoteObject" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dcc8f104-b612-46ad-8331-e7b29e1d8b4f" name="Default Changelist" comment="" />
+      <created>1574445147659</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574445147659</updated>
+      <workItem from="1574445151444" duration="4103000" />
+      <workItem from="1574535721792" duration="1108000" />
+      <workItem from="1574547079898" duration="11015000" />
+      <workItem from="1574620222332" duration="3104000" />
+      <workItem from="1574633393450" duration="18695000" />
+      <workItem from="1574709452587" duration="17319000" />
+      <workItem from="1574781732937" duration="22448000" />
+      <workItem from="1574880657714" duration="9391000" />
+      <workItem from="1574963100025" duration="595000" />
+      <workItem from="1574972307624" duration="722000" />
+      <workItem from="1574973082906" duration="14908000" />
+      <workItem from="1575008633042" duration="2437000" />
+      <workItem from="1575064852400" duration="825000" />
+      <workItem from="1575073621585" duration="28006000" />
+      <workItem from="1575138399667" duration="15525000" />
+      <workItem from="1575155100806" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
