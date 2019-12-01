@@ -8,6 +8,7 @@ package rios.gaston.client;
 import rios.gaston.interfaces.IfaceRemoteClass;
 import rios.gaston.multicastRMI.StubExporter;
 
+import java.lang.reflect.Array;
 import java.rmi.Naming;
 import java.rmi.registry.Registry; /* REGISTRY_PORT */
 import java.util.Arrays;
@@ -26,19 +27,25 @@ public class AskRemote{
             IfaceRemoteClass remote = (IfaceRemoteClass) Naming.lookup(rname);
             */
             String rname = "remote";
-            IfaceRemoteClass remote = (IfaceRemoteClass) StubExporter.lookup(rname);
-            System.out.println(remote);
-
             int bufferlength = 100;
             byte[] buffer = new byte[bufferlength];
-            List<Object> a = (List<Object>)remote.sendThisBack(buffer);
-            System.out.println(a);
-            System.out.println("Done");
+            Arrays.fill(buffer, (byte)1);
+
+            // You can create an operation to be cast for each received result
+            IfaceRemoteClass remote = (IfaceRemoteClass) StubExporter.lookup(rname,
+                    (result)->{System.out.println(Arrays.equals(buffer, (byte[])result));});
+            remote.sendThisBack(buffer);
+
+            // Or you can wait for the result to be received
+            byte[] arrayBuffer = new byte[bufferlength];
+            Arrays.fill(arrayBuffer, (byte)2);
+            remote = (IfaceRemoteClass) StubExporter.lookup(rname);
+            List<byte[]> results = (List<byte[]>) remote.sendThisBack(arrayBuffer);
             Thread.sleep(2000);
-            System.out.println(a);
-            System.out.println(Arrays.equals(buffer,(byte[]) a.get(0)));
-            System.out.println(Arrays.equals(buffer,(byte[]) a.get(1)));
-            System.out.println(Arrays.equals(buffer,(byte[]) a.get(2)));
+            for (byte[] result:
+                 results) {
+                System.out.println(Arrays.equals(arrayBuffer, result));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

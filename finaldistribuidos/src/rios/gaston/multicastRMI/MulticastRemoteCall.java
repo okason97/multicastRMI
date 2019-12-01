@@ -84,15 +84,6 @@ public class MulticastRemoteCall implements RemoteCall {
         }
     }
 
-    public void finish() throws IOException {
-        if (this.tcpConnection != null){
-            this.tcpConnection.close();
-        }
-        if (this.multicastConnection != null){
-        this.multicastConnection.close();
-        }
-    }
-
     public ObjectOutputStream getOutputStream() throws IOException {
         if (this.out == null){
             this.out = this.tcpConnection.getOutputStream();
@@ -121,6 +112,12 @@ public class MulticastRemoteCall implements RemoteCall {
 
     public void acceptTCPConnection() throws IOException {
         this.tcpConnection.acceptConnection();
+    }
+
+    public void closeMulticast() throws IOException {
+        if (this.multicastConnection != null){
+            this.multicastConnection.close();
+        }
     }
 
     /*

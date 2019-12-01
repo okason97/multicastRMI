@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.Remote;
-import java.util.Arrays;
+import java.lang.reflect.Proxy;
+import java.rmi.server.RemoteObjectInvocationHandler;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Consumer;
 
 public final class StubExporter {
     private static final int defaultPort = 8080;
@@ -70,12 +72,22 @@ public final class StubExporter {
         ulforce.get();
         ObjectInputStream in = tcpConn.getInputStream();
         int op = in.readInt();
-        Object stub = in.readObject();
-        tcpConn.close();
         if (op == 1){
+            Object stub = in.readObject();
+            tcpConn.close();
             return stub;
         }else{
+            tcpConn.close();
             throw new IOException("unknown transport op " + op);
         }
     }
+
+    public static Object lookup(String rname, Consumer<Object> op) throws IOException, ClassNotFoundException, ExecutionException, InterruptedException {
+        Object stub = lookup(rname);
+        RemoteObjectInvocationHandler handler = (RemoteObjectInvocationHandler)Proxy.getInvocationHandler(stub);
+        MulticastRef ref = (MulticastRef)handler.getRef();
+        ref.setResultOp(op);
+        return stub;
+    }
+
 }

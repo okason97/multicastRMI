@@ -56,7 +56,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.AskRemote (1)">
-    <configuration name="AskRemote (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AskRemote (1)" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="rios.gaston.client.AskRemote" />
       <module name="finaldistribuidos" />
       <option name="PROGRAM_PARAMETERS" value="localhost" />
@@ -189,6 +189,8 @@
       <workItem from="1575073621585" duration="28006000" />
       <workItem from="1575138399667" duration="15525000" />
       <workItem from="1575155100806" duration="10000" />
+      <workItem from="1575155134262" duration="112000" />
+      <workItem from="1575219713385" duration="4739000" />
     </task>
     <servers />
   </component>

@@ -13,11 +13,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.UUID;
+import java.util.function.Consumer;
+
 import sun.rmi.transport.LiveRef;
 
 public class MulticastRef implements RemoteRef {
     protected MulticastLiveRef multicastRef;
     private static final int timeOut = 15;
+    private Consumer<Object> resultOp = null;
 
     public MulticastRef() {
         this.multicastRef = new MulticastLiveRef();
@@ -27,25 +30,32 @@ public class MulticastRef implements RemoteRef {
         this.multicastRef = multicastLiveRef;
     }
 
+    public void setResultOp(Consumer<Object> resultOp){
+        this.resultOp = resultOp;
+    }
     // HANDLER DE LO QUE INVOCA EL CLIENTE
     //
     public Object invoke(Remote obj, Method method, Object[] params, long opnum) throws Exception {
-        this.multicastRef.newUDPConnection();
         final String uniqueID = UUID.randomUUID().toString();
-        MulticastRemoteCall call = new MulticastRemoteCall(this.multicastRef.getMulticastConnection(), uniqueID, opnum);;
+        MulticastRemoteCall call;
+        synchronized (this){
+            this.multicastRef.newUDPConnection();
+            call = new MulticastRemoteCall(this.multicastRef.getMulticastConnection(), uniqueID, opnum);;
 
-        try {
-            ObjectOutput out = call.getMulticastOutputStream();
-            Object in = method.getParameterTypes();
+            try {
+                ObjectOutput out = call.getMulticastOutputStream();
+                Object in = method.getParameterTypes();
 
-            for(int i = 0; i < ((Object[])in).length; ++i) {
-                marshalValue((Class)((Object[])in)[i], params[i], out);
+                for(int i = 0; i < ((Object[])in).length; ++i) {
+                    marshalValue((Class)((Object[])in)[i], params[i], out);
+                }
+            } catch (IOException var39) {
+                throw new MarshalException("error marshalling arguments", var39);
             }
-        } catch (IOException var39) {
-            throw new MarshalException("error marshalling arguments", var39);
-        }
 
-        call.executeCall();
+            call.executeCall();
+            call.closeMulticast();
+        }
 
         List<Object> result = Collections.synchronizedList(new ArrayList<>());
         Class<?> rtype = method.getReturnType();
@@ -67,11 +77,15 @@ public class MulticastRef implements RemoteRef {
                         if (success == (byte)0){
                             Object returnValue = unmarshalValue(rtype, input);
                             synchronized (result) {
+                                if (this.resultOp != null)
+                                    this.resultOp.accept(returnValue);
                                 result.add(returnValue);
                             }
                         }else{
                             Throwable returnValue = (Throwable)input.readObject();
                             synchronized (result) {
+                                if (this.resultOp != null)
+                                    this.resultOp.accept(returnValue);
                                 result.add(returnValue);
                             }
                         }
@@ -89,11 +103,6 @@ public class MulticastRef implements RemoteRef {
             }
             executor.shutdownNow();
         }, resultExecutor).whenCompleteAsync((s,t)->{
-            try {
-                finalCall.finish();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
             if(t!=null){
                 t.printStackTrace();
             }
