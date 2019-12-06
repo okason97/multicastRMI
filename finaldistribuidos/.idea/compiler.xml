@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="finaldistribuidos" options="--add-exports=java.rmi/sun.rmi.server=ALL-UNNAMED --add-exports=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-exports=java.rmi/sun.rmi.runtime=ALL-UNNAMED --add-exports=java.rmi/sun.rmi.transport.tcp=ALL-UNNAMED --add-exports=java.rmi/sun.rmi.registry=ALL-UNNAMED" />
-    </option>
-  </component>
-</project>
